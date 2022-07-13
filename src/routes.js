@@ -2,11 +2,16 @@ const {
   addBookHandler,
   getAllBookHandler,
   getBookDetailHandler,
-  editDetailHandler,
+  editBookDetailHandler,
   deleteBookHandler,
 } = require('./handler');
 
 const routes = [
+  {
+    method: '*',
+    path: '/{any*}',
+    handler: () => 'Halaman tidak ditemukan',
+  },
   {
     method: 'POST',
     path: '/books',
@@ -25,7 +30,7 @@ const routes = [
   {
     method: 'PUT',
     path: '/books/{bookId}',
-    handler: editDetailHandler,
+    handler: editBookDetailHandler,
   },
   {
     method: 'DELETE',
